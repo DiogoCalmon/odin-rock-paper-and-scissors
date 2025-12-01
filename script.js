@@ -55,6 +55,50 @@ let computerScore = 0;
 
 function playRound(humanChoice, computerChoice){
     if (humanChoice == "rock"){
-        
+        if (computerChoice == "rock") {
+            alert(`Machine choose ${computerChoice}\n\nDraw`);
+        } else if (computerChoice == "paper") {
+            alert(`Machine choose ${computerChoice}\n\nMachine won this match`);
+            computerScore++;
+        } else {
+            alert(`Machine choose ${computerChoice}\n\nPlayer won this match`);
+            humanScore++;
+        }
+    } else if (humanChoice == "paper"){
+        if (computerChoice == "rock") {
+            alert(`Machine choose ${computerChoice}\n\nPlayer won this match`);
+            humanScore++;
+        } else if (computerChoice == "paper") {
+            alert(`Machine choose ${computerChoice}\n\nDraw`);
+        } else {
+            alert(`Machine choose ${computerChoice}\n\nMachine won this match`);
+            computerScore++;
+        }
+    } else {
+        if (computerChoice == "rock") {
+            alert(`Machine choose ${computerChoice}\n\nMachine won this match`);
+            computerScore++;
+        } else if (computerChoice == "paper") {
+            alert(`Machine choose ${computerChoice}\n\nPlayer won this match`);
+            humanScore++;
+        } else {
+            alert(`Machine choose ${computerChoice}\n\nDraw`);
+        }
     }
 }
+
+function playGame(){
+    for (let i = 0; i < 5; i++){
+        playRound(getHumanChoice(), getComputerChoice());
+    }
+
+    if (humanScore > computerScore){
+        alert("Human won the game!!!");
+    } else if (humanScore < computerScore){
+        alert("Computer won the game :(");
+    } else {
+        alert("Human and computer has the same score\n\n It's a DRAW!!!");
+    }
+}
+
+playGame()
