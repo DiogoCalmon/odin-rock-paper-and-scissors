@@ -1,81 +1,60 @@
-let chooseOfPlayer;
-let chooseOfMachine;
+function getComputerChoice(){
+    // other alternative
 
-let scoreOfPlayer = 0;
-let scoreOfMachine = 0;
+    // const chooses = ["rock", "paper", "scissors"];
+    // const index = Math.random() * 3;
 
-for (let i = 0; i < 5; i++){
-    chooseOfPlayer = parseInt(prompt("Digit 1 for choose rock\nDigit 2 for choose paper\nDigit 3 for choose scissor"));
-    chooseOfMachine = Math.floor(Math.random() * 3) + 1;
+    // return chooses[index];
 
-    switch (chooseOfPlayer){
+    // But i will follow with the code below
+
+    let number = Math.floor(Math.random() * 3) + 1;
+
+    switch (number){
         case 1:
-            chooseOfPlayer = "rock";
+            number = "rock";
             break;
         case 2:
-            chooseOfPlayer = "paper";
+            number = "paper";
             break;
         case 3:
-            chooseOfPlayer = "scissor";
+            number = "scissors";
             break;
         default:
-            alert("Choose a valid value");
+            console.error("Error in variable number");
             break;
     }
 
-    switch (chooseOfMachine){
+    return number;
+}
+
+function getHumanChoice(){
+    let response = parseInt(prompt("Choose:\n\n1. rock\n2. paper\n3. scissors\n\nPlease, use the numbers that follow the options"));
+
+    switch (response){
         case 1:
-            chooseOfMachine = "rock";
+            response = "rock";
             break;
         case 2:
-            chooseOfMachine = "paper";
+            response = "paper";
             break;
         case 3:
-            chooseOfMachine = "scissor";
+            response = "scissors";
             break;
         default:
-            alert("Choose a valid value");
+            console.error("Error in variable number");
+            alert("Choose a valid number");
             break;
     }
 
-    if (chooseOfPlayer == "rock"){
-        if (chooseOfMachine == "rock") {
-            alert(`Machine choose ${chooseOfMachine}\nDraw`);
-        } else if (chooseOfMachine == "paper") {
-            alert(`Machine choose ${chooseOfMachine}\nMachine won this match`);
-            scoreOfMachine++;
-        } else {
-            alert(`Machine choose ${chooseOfMachine}\nPlayer won this match`);
-            scoreOfPlayer++;
-        }
-    } else if (chooseOfPlayer == "paper"){
-        if (chooseOfMachine == "rock") {
-            alert(`Machine choose ${chooseOfMachine}\nPlayer won this match`);
-            scoreOfPlayer++;
-        } else if (chooseOfMachine == "paper") {
-            alert(`Machine choose ${chooseOfMachine}\nDraw`);
-        } else {
-            alert(`Machine choose ${chooseOfMachine}\nMachine won this match`);
-            scoreOfMachine++;
-        }
-    } else {
-        if (chooseOfMachine == "rock") {
-            alert(`Machine choose ${chooseOfMachine}\nMachine won this match`);
-            scoreOfMachine++;
-        } else if (chooseOfMachine == "paper") {
-            alert(`Machine choose ${chooseOfMachine}\nPlayer won this match`);
-            scoreOfPlayer++;
-        } else {
-            alert(`Machine choose ${chooseOfMachine}\nDraw`);
-        }
+    return response;
+}
+
+let humanScore = 0;
+let computerScore = 0;
+
+function playRound(humanChoice, computerChoice){
+    if (humanChoice == "rock"){
+        
     }
 }
-
-if (scoreOfPlayer > scoreOfMachine){
-    alert("Player won the game!!!")
-} else if (scoreOfMachine > scoreOfPlayer){
-    alert("Machine won the game")
-} else {
-    alert("The player and machine has the same score\nDRAW")
-}
-
