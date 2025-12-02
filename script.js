@@ -1,3 +1,5 @@
+// Generates a random choice between rock, paper and scissor
+
 function getComputerChoice(){
     // other alternative
 
