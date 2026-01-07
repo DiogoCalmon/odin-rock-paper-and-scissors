@@ -3,9 +3,35 @@
     <head>
         <meta charset="UTF-8">
         <title>Rock, paper and scissor</title>
-        <script src="script.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <script type="module" src="main.js" defer></script>
+        <meta name="viewport" content="width=device-width"/>
     </head>
     <body>
-        
+        <div id="container1">
+            <div id="menu">
+                <img id="rps" src="./img/Rock Paper and Scissor.png" alt="Rock, Paper and scissor">
+                <img id="start" src="./img/click on screen for start.png" alt="click on screen for start">
+            </div>
+        </div>
+        <div id="container2">
+            <div id="player">
+                <div id="p1" class="hearts">
+
+                </div>
+                <div id="sprite1" class="spriteOfCharacters"><img src="./img/playerChar.png" alt="player char"></div>
+                <div id="chooses">
+                    <img src="./img/rock.png" alt="rock">
+                    <img src="./img/paper.png" alt="paper">
+                    <img src="./img/scissor.png" alt="scissor">
+                </div>
+            </div>
+            <div id="computer">
+                <div id="p2" class="hearts">
+
+                </div>
+                <div id="sprite2" class="spriteOfCharacters"><img src="./img/computerChar.png" alt="computer char"></div>
+            </div>
+        </div>
     </body>
 </html>

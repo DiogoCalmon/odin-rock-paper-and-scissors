@@ -1,0 +1,46 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: url("./img/novo-bg.jpg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    width: 100vw;
+    max-width: 1360px;
+    height: 220vh;
+    transition: all 1.5s ease-in-out;
+    animation-duration: 2s;
+    overflow-y: hidden;
+}
+
+#container1{
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+    height: 174vh;
+}
+
+#menu{
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+    width: 40vw;
+}
+
+#container2{
+    display: flex;
+    justify-content: space-around;
+    gap: 8rem;
+}
+
+.spriteOfCharacters img{
+    width: 7rem;
+    height: 6rem;
+}
+
+
+
