@@ -21,7 +21,7 @@ body{
     display: flex;
     justify-content: center;
     padding-top: 2rem;
-    height: 174vh;
+    height: 164vh;
 }
 
 #menu{
@@ -37,9 +37,44 @@ body{
     gap: 8rem;
 }
 
+#player{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 15rem;
+}
+
+.hearts {
+    display: flex;
+}
+
 .spriteOfCharacters img{
     width: 7rem;
     height: 6rem;
+    margin: 2rem;
+}
+
+#chooses{
+    display: flex;
+    justify-content: space-between;
+    width: 18rem;
+}
+
+#chooses img{
+    width: 3.5rem;
+    height: 3.5rem;
+    transition: all 0.2s ease-in;
+}
+
+#chooses #paper{
+    margin-top: 2rem;
+}
+
+#chooses img:hover{
+    width: 6rem;
+    height: 6rem;
+    cursor: pointer;
 }
 
 
