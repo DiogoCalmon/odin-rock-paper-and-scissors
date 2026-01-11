@@ -21,7 +21,8 @@ body{
     display: flex;
     justify-content: center;
     padding-top: 2rem;
-    height: 164vh;
+    height: 158vh;
+    
 }
 
 #menu{
@@ -33,20 +34,42 @@ body{
 
 #container2{
     display: flex;
-    justify-content: space-around;
-    gap: 8rem;
+    justify-content: center;
+    gap: 4rem;
+    
 }
 
 #player{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-center;
     align-items: center;
     width: 15rem;
 }
 
+#cards{
+    width: 20rem;
+    height: 24rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#computer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-center;
+    align-items: center;
+    width: 15rem;
+}
+
+.characters{
+    margin-top: 2.5rem;
+}
+
 .hearts {
     display: flex;
+    gap: 2px;
 }
 
 .spriteOfCharacters img{
@@ -64,7 +87,7 @@ body{
 #chooses img{
     width: 3.5rem;
     height: 3.5rem;
-    transition: all 0.2s ease-in;
+    transition: all 0.3s ease-out;
 }
 
 #chooses #paper{
@@ -75,6 +98,26 @@ body{
     width: 6rem;
     height: 6rem;
     cursor: pointer;
+}
+
+#cards img {
+    width: 8rem;
+    height: 12rem;
+}
+
+#playerCardChoose{
+    position: relative;
+    top: 12rem;
+    bottom: 0rem;
+    opacity: 0%;
+    transition: all 0.6s ease-out;
+}
+
+#computerCardChoose{
+    position: relative;
+    bottom: 12rem;
+    opacity: 0%;
+    transition: all 0.6s ease-out;
 }
 
 

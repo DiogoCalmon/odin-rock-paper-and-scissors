@@ -1,27 +1,25 @@
+import {matchAnimation} from"./scripts/matchLogic.js"
+
+const chooses = document.querySelector("#chooses");
+const audio = document.querySelector("audio");
+audio.volume = 0.8;
+
 let chooseOfPlayer;
 let chooseOfMachine;
 
-let scoreOfPlayer = 0;
-let scoreOfMachine = 0;
+let heartsPlayer = 5;
+let heartsComputer = 5;
 
-for (let i = 0; i < 5; i++){
-    chooseOfPlayer = parseInt(prompt("Digit 1 for choose rock\nDigit 2 for choose paper\nDigit 3 for choose scissor"));
+
+
+chooses.addEventListener("click", e => {
+    const audioClicked = new Audio("./music/selectedButton.mp3");
+    audioClicked.volume = 1;
+    audioClicked.play();
+    console.log(e.target.alt);
+
+    chooseOfPlayer = e.target.alt;
     chooseOfMachine = Math.floor(Math.random() * 3) + 1;
-
-    switch (chooseOfPlayer){
-        case 1:
-            chooseOfPlayer = "rock";
-            break;
-        case 2:
-            chooseOfPlayer = "paper";
-            break;
-        case 3:
-            chooseOfPlayer = "scissor";
-            break;
-        default:
-            alert("Choose a valid value");
-            break;
-    }
 
     switch (chooseOfMachine){
         case 1:
@@ -34,48 +32,51 @@ for (let i = 0; i < 5; i++){
             chooseOfMachine = "scissor";
             break;
         default:
-            alert("Choose a valid value");
+            console.log("Choose a valid value");
             break;
     }
 
-    if (chooseOfPlayer == "rock"){
-        if (chooseOfMachine == "rock") {
-            alert(`Machine choose ${chooseOfMachine}\nDraw`);
-        } else if (chooseOfMachine == "paper") {
-            alert(`Machine choose ${chooseOfMachine}\nMachine won this match`);
-            scoreOfMachine++;
-        } else {
-            alert(`Machine choose ${chooseOfMachine}\nPlayer won this match`);
-            scoreOfPlayer++;
-        }
-    } else if (chooseOfPlayer == "paper"){
-        if (chooseOfMachine == "rock") {
-            alert(`Machine choose ${chooseOfMachine}\nPlayer won this match`);
-            scoreOfPlayer++;
-        } else if (chooseOfMachine == "paper") {
-            alert(`Machine choose ${chooseOfMachine}\nDraw`);
-        } else {
-            alert(`Machine choose ${chooseOfMachine}\nMachine won this match`);
-            scoreOfMachine++;
-        }
-    } else {
-        if (chooseOfMachine == "rock") {
-            alert(`Machine choose ${chooseOfMachine}\nMachine won this match`);
-            scoreOfMachine++;
-        } else if (chooseOfMachine == "paper") {
-            alert(`Machine choose ${chooseOfMachine}\nPlayer won this match`);
-            scoreOfPlayer++;
-        } else {
-            alert(`Machine choose ${chooseOfMachine}\nDraw`);
-        }
-    }
-}
+    let currentWinner = await matchAnimation(chooseOfPlayer, chooseOfMachine);
+    console.log("winner of match: "+currentWinner)
 
-if (scoreOfPlayer > scoreOfMachine){
-    alert("Player won the game!!!")
-} else if (scoreOfMachine > scoreOfPlayer){
-    alert("Machine won the game")
-} else {
-    alert("The player and machine has the same score\nDRAW")
-}
+    if (currentWinner === "player"){
+        heartsComputer--;
+    } else if (currentWinner === "computer"){
+        heartsPlayer--;
+    }
+
+    const winner = document.querySelector("#winner");
+
+    if (heartsPlayer <= 0){
+        const text = document.createElement("h1");
+        winner.appendChild(text);
+        text.textContent = "PLAYER WIN!!!";
+    }
+
+    if (heartsComputer <= 0){
+        const text = document.createElement("h1");
+        winner.appendChild(text);
+        text.textContent = "COMPUTER WIN!!!";
+    }
+})
+
+chooses.addEventListener("mouseover", e => {
+    const audioHover = new Audio("./music/hoverAudio.mp3");
+    audioHover.volume = 1;
+
+    switch(e.target.alt){
+        case "rock":
+            audioHover.play();
+            break;
+        case "paper":
+            audioHover.play();
+            break;
+        case "scissor":
+            audioHover.play();
+            break;
+        default:
+            break;
+    }
+        
+    })
 
