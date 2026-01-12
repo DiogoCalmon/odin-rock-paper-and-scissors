@@ -91,9 +91,12 @@ export async function matchAnimation(player, computer){
                     throw new Error("Last Heart");
                 }
             }catch(error){
-                const text = document.createElement("h1");
-                winner.appendChild(text);
-                text.textContent = "PLAYER WIN!!!";
+                const winnermessage = document.querySelector("#result");
+                winnermessage.setAttribute("src", "./img/resultsOfGame/Player win.png");
+
+                const winner = document.querySelector("#winner");
+                winner.style.opacity = "100%";
+                winner.style.top = "0rem";
 
                 const container2 = document.querySelector("#container2");
                 container2.removeChild("#chooses");
@@ -122,9 +125,12 @@ export async function matchAnimation(player, computer){
                     throw new Error("Last Heart");
                 }
             }catch(error){
-                const text = document.createElement("h1");
-                winner.appendChild(text);
-                text.textContent = "COMPUTER WIN!!!";
+                const winnermessage = document.querySelector("#result");
+                winnermessage.setAttribute("src", "./img/resultsOfGame/Computer win.png");
+
+                const winner = document.querySelector("#winner");
+                winner.style.opacity = "100%";
+                winner.style.top = "0rem";
 
                 const container2 = document.querySelector("#container2");
                 container2.removeChild("#chooses");
