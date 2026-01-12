@@ -12,7 +12,7 @@ let heartsComputer = 5;
 
 
 
-chooses.addEventListener("click", e => {
+chooses.addEventListener("click", async e => {
     const audioClicked = new Audio("./music/selectedButton.mp3");
     audioClicked.volume = 1;
     audioClicked.play();
@@ -36,28 +36,15 @@ chooses.addEventListener("click", e => {
             break;
     }
 
-    let currentWinner = await matchAnimation(chooseOfPlayer, chooseOfMachine);
-    console.log("winner of match: "+currentWinner)
+    matchAnimation(chooseOfPlayer, chooseOfMachine)
 
-    if (currentWinner === "player"){
-        heartsComputer--;
-    } else if (currentWinner === "computer"){
-        heartsPlayer--;
-    }
+    // if (currentWinner === "player"){
+    //     heartsComputer--;
+    // } else if (currentWinner === "computer"){
+    //     heartsPlayer--;
+    // }
 
-    const winner = document.querySelector("#winner");
-
-    if (heartsPlayer <= 0){
-        const text = document.createElement("h1");
-        winner.appendChild(text);
-        text.textContent = "PLAYER WIN!!!";
-    }
-
-    if (heartsComputer <= 0){
-        const text = document.createElement("h1");
-        winner.appendChild(text);
-        text.textContent = "COMPUTER WIN!!!";
-    }
+    
 })
 
 chooses.addEventListener("mouseover", e => {

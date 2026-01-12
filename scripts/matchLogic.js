@@ -84,9 +84,20 @@ export async function matchAnimation(player, computer){
                 count++;
             }, 500);
 
-            setTimeout(() => {
-                computerHearts.removeChild(computerHearts.lastElementChild);
-            }, 3000)
+            try{
+                computerHearts.removeChild(computerHearts.firstChild);
+                computerHearts.removeChild(computerHearts.firstChild);
+                if (computerHearts.childNodes.length <= 1){
+                    throw new Error("Last Heart");
+                }
+            }catch(error){
+                const text = document.createElement("h1");
+                winner.appendChild(text);
+                text.textContent = "PLAYER WIN!!!";
+
+                const container2 = document.querySelector("#container2");
+                container2.removeChild("#chooses");
+            }
             startCharAnimation();
 
         } else if (result === "computer"){
@@ -103,22 +114,36 @@ export async function matchAnimation(player, computer){
                 computerChar.setAttribute("src", `./img/computerCharFolder/computerChar${count}.png`);
                 count++;
             }, 500);
+                
+            try{
+                playerHearts.removeChild(playerHearts.firstChild);
+                playerHearts.removeChild(playerHearts.firstChild);
+                if (playerHearts.childNodes.length <= 1){
+                    throw new Error("Last Heart");
+                }
+            }catch(error){
+                const text = document.createElement("h1");
+                winner.appendChild(text);
+                text.textContent = "COMPUTER WIN!!!";
 
-            setTimeout(() => {
-                playerHearts.removeChild(playerHearts.lastElementChild);
-            }, 3000)
+                const container2 = document.querySelector("#container2");
+                container2.removeChild("#chooses");
+            }
             startCharAnimation();
         }
 
-        chooses.style.display = "flex";
+        setTimeout(() => {
+            chooses.style.display = "flex";
+        }, 1000)
 
         setTimeout(() => {
             chooses.style.opacity = "100%";
             chooses.style.marginTop = "0px";
             playerCardChoose.style.top = "12rem";
             computerCardChoose.style.bottom = "12rem";
-            return result;
         }, 3000);
+
+        return result;
     }, 1200)
 }
 
